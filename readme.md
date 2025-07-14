@@ -7,10 +7,7 @@ Este projeto é um jogo multiplayer desenvolvido para a disciplina de Redes 1, e
 ## 📌 Descrição do Jogo
 
 - Os jogadores se conectam ao servidor e disputam quem encontra o **tesouro escondido** em um tabuleiro.
-- Cada jogador clica em uma casa do grid em seu turno e recebe **dicas** como:
-  - “Mesma linha”
-  - “Mesma coluna”
-  - “X casas de distância”
+- Cada jogador clica em uma casa do grid em seu turno.
 - Algumas casas são **especiais**:
   - ⭐ `estrela.png`: joga 2 vezes
   - 🍌 `banana.png`: perde a vez e o adversário joga 2x

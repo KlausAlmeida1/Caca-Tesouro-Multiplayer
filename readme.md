@@ -58,8 +58,8 @@ CaçaTesouro/
 
 ### 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone https://github.com/KlausAlmeida1/Caca-Tesouro-Multiplayer.git
+cd Caca-Tesouro-Multiplayer
 ```
 
 ### 2. Rode o servidor:

@@ -1,6 +1,6 @@
 # 🎮 Caça ao Tesouro – Jogo Multiplayer com Sockets e Pygame
 
-Este projeto é um jogo multiplayer de rede, estilo "Caça ao Tesouro", desenvolvido para a disciplina de Redes de Computadores. Ele utiliza a arquitetura cliente-servidor via **sockets TCP** e possui uma interface gráfica com **Pygame**, além de sprites personalizados e animações.
+Este projeto é um jogo multiplayer desenvolvido para a disciplina de Redes 1, estilo "Caça ao Tesouro". Ele utiliza a arquitetura cliente-servidor via **sockets TCP** e possui uma interface gráfica com **Pygame**, além de sprites personalizados e animações.
 
 ---
 

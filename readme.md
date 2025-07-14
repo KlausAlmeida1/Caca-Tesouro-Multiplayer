@@ -106,5 +106,4 @@ SERVER_HOST = "192.168.0.42"
   - `WELCOME` → ID do jogador e tamanho do grid
   - `YOUR_TURN` → informa de quem é a vez
   - `GUESS` → jogador envia palpite `{x, y}`
-  - `FEEDBACK` → resposta com dica, efeito especial, e posição
   - `GAME_OVER` → anuncia o vencedor

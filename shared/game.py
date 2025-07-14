@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import random
 
 GRID_SIZE = 10
@@ -8,12 +7,21 @@ class GameState:
     """
     Mantém todo o estado do jogo – independente de rede ou UI.
     """
-    def __init__(self, size: int = GRID_SIZE):
+    def __init__(self, size: int = GRID_SIZE, k_specials: int = 30):
         self.size = size
+        self.k_specials = k_specials
+        self.players = []                    # [(player_id, skips_left), ...]
+        self.reset()
+
+    def reset(self):
+        """Reinicia o estado (tesouro, efeitos e turnos), mantendo jogadores."""
         self.treasure = self._rand_cell()
         self.turn_index = 0                  # índice no vetor players
-        self.players = []                    # [(player_id, skips_left), ...]
-        self.special_cells = self._spawn_specials(k=5)  # 5 casas especiais
+        # limpa skips
+        for p in self.players:
+            p[1] = 0
+        # novas casas especiais
+        self.special_cells = self._spawn_specials(self.k_specials)
 
     # ---------- utilidades --------- #
     def _rand_cell(self):
@@ -30,7 +38,7 @@ class GameState:
 
     # ---------- API usada pelo servidor --------- #
     def add_player(self, pid: str):
-        self.players.append([pid, 0])        # 0 skips_left
+        self.players.append([pid, 0])      # 0 skips_left
 
     def _current_player(self):
         return self.players[self.turn_index][0]
@@ -51,6 +59,7 @@ class GameState:
         hint        : str   (“mesma linha”, “3 de distância” …)
         effect      : str|None   (“extra_turn”, “lose_turn” ou None)
         win         : bool
+        next_player : str ou None
         """
         if pid != self._current_player():
             raise ValueError("Not your turn")
@@ -81,11 +90,7 @@ class GameState:
                     break
 
         # --- avança ou mantém turno --- #
-        if win:
-            pass                                            # jogo acaba
-        elif effect == "extra_turn":
-            pass                                            # mesmo jogador novamente
-        else:
+        if not win and effect != "extra_turn":
             self._advance_turn()
 
         return {"hint": hint, "effect": effect, "win": win,

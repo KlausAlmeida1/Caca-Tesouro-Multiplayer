@@ -12,7 +12,7 @@ from shared.game import GRID_SIZE
 # --- Configuração de rede e tela ---
 SERVER_HOST = "127.0.0.1"  # altere para o IP do servidor na LAN
 SERVER_PORT = 4000
-CELL = 80
+CELL = 60
 WIDTH = GRID_SIZE * CELL
 HEIGHT = GRID_SIZE * CELL + 100
 
